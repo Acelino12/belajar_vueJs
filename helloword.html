@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ pesan }}
+        <p> {{ myFunc() }} </p>
+
+        <!-- <p>{{boolean}}</p>
+        <p>
+            {{ myObject.name[2] }}
+            {{ myObject.age[2]}}
+        </p>
+        <p>
+            {{ myObject.name }}
+            {{ myObject.age }}
+        </p> -->
+    </div>
+</body>
+
+<script>
+
+const app ={
+    data() {
+        return{
+            pesan : 'ada',
+            boolean: true,
+            cobaArray: [
+                'dia','wanita','pria'
+            ]
+        }
+    },
+    methods: {
+        myFunc(){
+            const randemArray = this.cobaArray[Math.floor(Math.random() * this.cobaArray.length )]
+
+            if (this.boolean) {
+                return this.cobaArray[0]
+            }
+            return randemArray
+        }
+    }
+}
+Vue.createApp(app).mount('#app')
+
+    
+    // const { createApp, ref } = Vue
+
+    // createApp({
+    //     setup() {
+    //         return{
+    //             pesan : 'asdasd',
+    //             boolean:true,
+    //             myObject:{
+    //                 name:['rendi','sawal','udin'],
+    //                 age:[50,25,34]
+    //             }
+    //         }
+    //     }
+    // }).mount('#app')
+
+</script>
+
+
+</html>
