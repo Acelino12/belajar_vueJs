@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <p>
+            {{name}}
+        </p>
+
+        <!-- shorcar v-on:click == @click  ditambah dengan argumen (promps) -->
+        <div v-on:click="updateNama('ika')">
+            klik disini
+        </div>
+
+        <!-- bisa juga pake submit.prevent -->
+        <form v-on:submit="hendleForm">
+            <input />
+            <button type="submit">
+                Submit
+            </button>
+        </form>
+        
+    </div>
+
+</body>
+
+<script>
+
+    const app = {
+        data() {
+            return {
+                name : 'cika',
+            }
+        },
+        methods: {
+            updateNama(promp){
+                this.name = promp
+            },
+            hendleForm(event, bika){
+                event.preventDefault();
+                console.log(bika)
+            }
+        },
+    }
+    Vue.createApp(app).mount('#app')
+
+</script>
+
+<style>
+    #box{
+        background-color: aquamarine;
+        color: aliceblue;
+        width: 200px;
+        height : 200px;
+    }
+</style>
+
+</html>
