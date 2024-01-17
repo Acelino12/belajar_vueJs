@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>model</title>
+</head>
+
+<body>
+    
+    <div id="app">
+
+        <form v-on:submit="handelForm">
+            <label >First Name :</label>
+            <input type="text" placeholder="budi" v-model="firstname">
+
+            <hr>
+            <label >Last Name :</label>
+            <input type="text" placeholder="anduk" v-model="lastname">
+            
+            <button type="submit">Submit !!!</button>
+        </form>
+
+    </div>
+</body>
+
+<script>
+    const app = {
+        data() {
+            return {
+                firstname : '',
+                lastname : ''
+            }
+        },
+        methods: {
+            handelForm(event){
+                event.preventDefault()
+                console.log(this.firstname + " " + this.lastname)
+                console.log()
+            }
+        },
+    }
+    Vue.createApp(app).mount('#app')
+</script>
+
+</html>
