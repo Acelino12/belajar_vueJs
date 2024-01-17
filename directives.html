@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build in Directives</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        {{ alt }}
+        <img :src="image" :alt="alt">
+        <p v-html="myHtml"></p>
+        <a v-bind:href="myLink"> go to google</a>
+    </div>
+    
+</body>
+
+<script>
+    const App = {
+        data() {
+            return {
+                image: 'https://picsum.photos/200/300',
+                alt: 'gambar randem',
+                myHtml:'<strong> i am ilon mang </strong>',
+                myLink:'https://www.google.co.id/?hl=id'
+            }
+        },
+    }
+Vue.createApp(App).mount('#app')
+</script>
+
+</html>
