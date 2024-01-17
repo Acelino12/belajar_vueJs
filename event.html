@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p>
+            {{name}}
+        </p>
+
+        <p>
+            {{nama}}
+        </p>
+
+        <!-- shorcar v-on:click == @click  ditambah dengan argumen (promps) -->
+        <div v-on:click="updateNama('ika')">
+            klik disini
+        </div>
+
+        <div id="box" v-on:mousemove="getCoordinate">
+
+        </div>
+
+        <p>
+            x = {{x}} dan y = {{y}}
+        </p>
+
+        <p>
+            sisi kali sisi {{ luaspersegi() }}
+        </p>
+
+        {{updateName()}}
+    </div>
+
+</body>
+
+<script>
+
+    const app = {
+        data() {
+            return {
+                name : 'cika',
+                nama : 'sisil',
+                x:0,
+                y:0,
+                sisi:0
+            }
+        },
+        methods: {
+            updateName(){
+                setTimeout(() => {
+                    this.name = 'baka'
+                },2000)
+            },
+            updateNama(promp){
+                this.nama = promp
+            },
+            getCoordinate(){
+                // console.log(event)
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            luaspersegi(){
+                return this.x * this.y
+            }
+        },
+    }
+    Vue.createApp(app).mount('#app')
+
+</script>
+
+<style>
+    #box{
+        background-color: aquamarine;
+        color: aliceblue;
+        width: 200px;
+        height : 200px;
+    }
+</style>
+
+</html>
