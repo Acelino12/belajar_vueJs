@@ -13,11 +13,25 @@
 
         <form v-on:submit="handelForm">
             <label >First Name :</label>
-            <input type="text" placeholder="budi" v-model="firstname">
+            <input type="text" placeholder="budi" v-model.trim="dataPerson.firstname">
 
             <hr>
             <label >Last Name :</label>
-            <input type="text" placeholder="anduk" v-model="lastname">
+            <input type="text" placeholder="anduk" v-model="dataPerson.lastname">
+
+            <hr>
+            <label >age :</label>
+            <input type="text" placeholder="20" v-model.number="dataPerson.age">
+
+            <hr>
+            <label >Chack Box :</label>
+            <input type="checkbox" v-model="dataPerson.chackbox">
+            
+            <br>
+            {{ dataPerson.nama }}
+
+            <br>
+            {{ dataPerson.chackbox }}
             
             <button type="submit">Submit !!!</button>
         </form>
@@ -29,15 +43,23 @@
     const app = {
         data() {
             return {
-                firstname : '',
-                lastname : ''
+                dataPerson:{
+                    firstname : '',
+                    nama : '',
+                    lastname : '',
+                    age : '',
+                    chackbox : false
+                }
+                
             }
         },
         methods: {
             handelForm(event){
                 event.preventDefault()
-                console.log(this.firstname + " " + this.lastname)
-                console.log()
+                this.dataPerson.nama = this.dataPerson.firstname + " " + this.dataPerson.lastname
+                console.log(this.dataPerson.firstname + " " + this.dataPerson.lastname)
+                console.log(this.dataPerson.age)
+                console.log(this.dataPerson.chackbox)
             }
         },
     }

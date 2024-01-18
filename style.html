@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>model</title>
+</head>
+
+<body>
+    
+    <div id="app">
+
+        <div class="box" v-bind:class="dataColor"> 
+
+        </div>
+
+        <label >Box Blue :</label>
+        <input type="checkbox" v-model="dataColor.blue">
+        <label >Box Red :</label>
+        <input type="checkbox" v-model="dataColor.red">
+        <label >Box white :</label>
+        <input type="checkbox" v-model="dataColor.white">
+        <label >Box Orange :</label>
+        <input type="checkbox" v-model="dataColor.orange">
+
+    </div>
+</body>
+
+<script>
+    const app = {
+        data() {
+            return {
+                dataColor:{
+                    blue : false,
+                    white : false,
+                    red : false,
+                    orange : false,
+                }
+                
+            }
+        },
+        methods: {
+            
+        },
+    }
+    Vue.createApp(app).mount('#app')
+</script>
+
+<style>
+    .box{
+        width: 1000;
+        margin: 10px;
+        background-color: aliceblue;
+        height: 200px;
+    }
+    .blue{
+        background-color: blue;
+    }
+    .white{
+        background-color: azure;
+    }
+    .red{
+        background-color: red;
+    }
+    .orange{
+        background-color: orange;
+    }
+</style>
+
+</html>
