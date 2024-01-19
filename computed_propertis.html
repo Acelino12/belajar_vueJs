@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Computed Propertis</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Computed Propertis</h1>
+    </div>
+    
+    <div id="app">
+
+        <input v-model="name">
+
+        <button v-on:click="handelaktif"> aktiv </button>
+        
+        <br>
+        {{ datapesan }}
+        <br>
+        {{ cobadata()}}
+        <br>
+        {{ aktifdata() }} 
+        <br>
+        {{handelaktifcom}}
+
+    </div>
+</body>
+
+<script>
+    const app = {
+        data() {
+            return {
+                name: '',
+                aktif : false
+            }
+        },
+        computed:{
+            datapesan(){
+                console.log('data computed')
+                return this.name === 'zidan' ? 'selamat datang' : 'bukan'
+            },
+            handelaktifcom(){
+                console.log('aktif computed')
+                return this.aktif = true ? 'a' : 'b'
+            }
+        },
+        methods: {
+            cobadata(){
+                console.log('coba methods')
+                return this.name === 'zidan' ? 'selamat datang' : 'bukan'
+            },
+            aktifdata(){
+                console.log('aktif method')
+                return this.aktif = true ? 'ac': 'dc'
+            },
+            handelaktif(){
+                console.log('asd')
+                this.aktif = !this.aktif
+            }
+        },
+    }
+    Vue.createApp(app).mount('#app')
+</script>
+
+<style>
+    .header {
+        width: 100%;
+    }
+
+    h1 {
+        margin-left: 550px;
+    }
+</style>
+
+</html>
