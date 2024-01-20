@@ -16,13 +16,11 @@
         <input v-model="name">
 
         <button v-on:click="handelaktif"> aktiv </button>
+
+        <button v-on:click="handleklik"> klik</button>
         
         <br>
         {{ datapesan }}
-        <br>
-        {{ cobadata()}}
-        <br>
-        {{ aktifdata() }} 
         <br>
         {{handelaktifcom}}
 
@@ -34,7 +32,14 @@
         data() {
             return {
                 name: '',
-                aktif : false
+                aktif : false,
+                klik: false
+            }
+        },
+        // ketika klik ada perubahan maka fungsi watch akan bekerja
+        watch:{
+            klik(){
+                console.log('watch klik')
             }
         },
         computed:{
@@ -48,17 +53,13 @@
             }
         },
         methods: {
-            cobadata(){
-                console.log('coba methods')
-                return this.name === 'zidan' ? 'selamat datang' : 'bukan'
-            },
-            aktifdata(){
-                console.log('aktif method')
-                return this.aktif = true ? 'ac': 'dc'
-            },
             handelaktif(){
                 console.log('asd')
                 this.aktif = !this.aktif
+            },
+            handelklik(){
+                console.log('klik')
+                this.klik = !this.klik
             }
         },
     }
