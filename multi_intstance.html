@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>instance</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Multiper Intsance</h1>
+    </div>
+    
+    <div id="app1">
+        <p> {{ name }} </p>
+        <button @click="ubahvalue"> ubah value</button>
+    </div>
+
+    <div id="app2">
+        {{ name }}
+    </div>
+</body>
+
+<script>
+    const app1 = {
+        data() {
+            return {
+                name: 'intsance 1',
+            }
+        },
+        methods: {
+            ubahvalue(){
+                console.log(app2.tampil)
+                alert(app2.name)
+            }
+        },
+    }
+    Vue.createApp(app1).mount('#app1')
+
+    // agar app1 dapat membaca dan menampilkan isi dari app 2
+    const app2 = Vue.createApp({
+        data() {
+            return {
+                name : 'intstance 2',
+                tampil : 'kedua'
+            }
+        },
+    }).mount('#app2')
+
+</script>
+
+
+
+<style>
+    .header {
+        width: 100%;
+    }
+
+    h1 {
+        margin-left: 550px;
+    }
+</style>
+
+</html>
