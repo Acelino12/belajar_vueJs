@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>component</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Component</h1>
+    </div>
+    
+    <div id="app1">
+        
+        <header_app></header_app>
+        <user></user>
+        
+    </div>
+
+</body>
+
+<script>
+    const app1 = Vue.createApp({}) 
+        
+    app1.component('user',{
+        data() {
+            return {
+                name: 'intsance 1',
+            }
+        },
+        template : ' <button class="box"> {{ name }}</button>',
+    })
+
+    app1.component('header_app',{
+        data() {
+            return {
+                name: 'header',
+            }
+        },
+        template : ' <div class="head"> {{ name }}</div>',
+    })
+
+    app1.mount('#app1')
+
+</script>
+
+
+
+<style>
+    .header {
+        width: 100%;
+    }
+
+    .head{
+        background-color: aqua;
+        width: 100%;
+        height: 50px;
+    }
+
+    .box{
+        background-color: aqua;
+    }
+
+    h1 {
+        margin-left: 550px;
+    }
+</style>
+
+</html>
